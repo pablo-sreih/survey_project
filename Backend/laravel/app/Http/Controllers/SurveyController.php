@@ -8,12 +8,12 @@ use App\Models\Survey;
 class SurveyController extends Controller
 {
     public function addSurvey(Request $request){
-        $survey = new Survey;
-        $survey->name = $request->name;
-        $survey->save();
-
+        $survey = Survey::create([
+            "name" => $request->name
+        ]);
         return response()->json([
-            "status" => "Success",
+            "status" => "success",
+            "survey" => $survey
         ],200);
     }
 

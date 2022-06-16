@@ -10,4 +10,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Survey extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $guarded = [];  
 }
