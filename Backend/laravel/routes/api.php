@@ -17,5 +17,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/add-survey', [SurveyController::class, 'addSurvey'])->name('add-survey');
-Route::post('/delete-survey', [SurveyController::class, 'deleteSurveyById'])->name('delete-survey');
+Route::group(['prefix' => "admin"], function () {
+    Route::post('/add-survey', [SurveyController::class, 'addSurvey'])->name('add-survey');
+    Route::post('/delete-survey', [SurveyController::class, 'deleteSurveyById'])->name('delete-survey');
+    Route::get('/get-surveys', [SurveyController::class, 'getSurveys'])->name('get-surveys');
+});
