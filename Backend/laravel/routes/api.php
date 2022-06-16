@@ -18,3 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/add-survey', [SurveyController::class, 'addSurvey'])->name('add-survey');
+Route::post('/delete-survey', [SurveyController::class, 'deleteSurveyById'])->name('delete-survey');

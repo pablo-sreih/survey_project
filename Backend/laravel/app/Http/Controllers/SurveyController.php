@@ -16,4 +16,13 @@ class SurveyController extends Controller
             "status" => "Success",
         ],200);
     }
+
+    public function deleteSurveyById(Request $request){
+        $survey = Survey::find($request->id);
+        $survey->delete();
+
+        return response()->json([
+            "status" => "Success",
+        ],200);
+    }
 }
