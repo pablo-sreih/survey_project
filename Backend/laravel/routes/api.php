@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\PossibleAnswerController;
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
@@ -23,6 +24,7 @@ Route::group(['prefix' => "admin"], function () {
     Route::post('/delete-survey', [SurveyController::class, 'deleteSurveyById'])->name('delete-survey');
     Route::get('/get-surveys', [SurveyController::class, 'getSurveys'])->name('get-surveys');
     Route::post('/add-question', [QuestionController::class, 'addQuestion'])->name('add-question');
+    Route::post('/add-pos-answer', [PossibleAnswerController::class, 'addPossibleAnswer']);
 });
 
 Route::post('/get-questions', [QuestionController::class, 'getQuestionsBySurveyId'])->name('get-all-questions-by-survey-id');
