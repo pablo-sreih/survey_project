@@ -28,3 +28,4 @@ Route::group(['prefix' => "admin"], function () {
 });
 
 Route::post('/get-questions', [QuestionController::class, 'getQuestionsBySurveyId'])->name('get-all-questions-by-survey-id');
+Route::post('/get-all-possible-answers', [PossibleAnswerController::class, 'getAllPossibleAnswersByQuestionId']);
