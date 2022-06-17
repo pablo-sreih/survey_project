@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\PossibleAnswerController;
+use App\Http\Controllers\AnswerController;
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
@@ -29,3 +30,7 @@ Route::group(['prefix' => "admin"], function () {
 
 Route::post('/get-questions', [QuestionController::class, 'getQuestionsBySurveyId'])->name('get-all-questions-by-survey-id');
 Route::post('/get-all-possible-answers', [PossibleAnswerController::class, 'getAllPossibleAnswersByQuestionId']);
+
+Route::group(['prefix' => "user"], function() {
+    Route::post('/add-answer', [AnswerController::class, 'addAnswer'])->name('add-answer');
+});
