@@ -24,3 +24,5 @@ Route::group(['prefix' => "admin"], function () {
     Route::get('/get-surveys', [SurveyController::class, 'getSurveys'])->name('get-surveys');
     Route::post('/add-question', [QuestionController::class, 'addQuestion'])->name('add-question');
 });
+
+Route::post('/get-questions', [QuestionController::class, 'getQuestionsBySurveyId'])->name('get-all-questions-by-survey-id');
