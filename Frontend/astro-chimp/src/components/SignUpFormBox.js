@@ -8,7 +8,7 @@ const SignUpFormBox = () => {
         var email = document.getElementById("email")
         var password = document.getElementById("password")
 
-        let data = new FormData
+        let data = new FormData()
         data.append("name", name.value)
         data.append("email", email.value)
         data.append("password", password.value)

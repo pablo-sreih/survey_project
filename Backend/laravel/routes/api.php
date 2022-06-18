@@ -23,12 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => "admin"], function () {
     Route::post('/add-survey', [SurveyController::class, 'addSurvey'])->name('add-survey');
     Route::post('/delete-survey', [SurveyController::class, 'deleteSurveyById'])->name('delete-survey');
-    Route::get('/get-surveys', [SurveyController::class, 'getSurveys'])->name('get-surveys');
     Route::post('/add-question', [QuestionController::class, 'addQuestion'])->name('add-question');
     Route::post('/add-pos-answer', [PossibleAnswerController::class, 'addPossibleAnswer']);
     Route::post('/get-answers-by-question-id', [AnswerController::class, 'getAnswersByQuestionId']);
 });
 
+Route::get('/get-surveys', [SurveyController::class, 'getSurveys'])->name('get-surveys');
 Route::post('/get-questions', [QuestionController::class, 'getQuestionsBySurveyId'])->name('get-all-questions-by-survey-id');
 Route::post('/get-all-possible-answers', [PossibleAnswerController::class, 'getAllPossibleAnswersByQuestionId']);
 
