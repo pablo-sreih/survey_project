@@ -2,9 +2,8 @@ import React from "react";
 
 const CheckMark = () => {
     return(
-        <label>
-            &#10004;
-        </label>
+        <div className="checkmark">
+        </div>
     )
 }
 
