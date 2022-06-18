@@ -99,3 +99,27 @@
   margin-right: 50px;
   color: white;
 }
+
+.page-title{
+  color: #0E0A4B;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.survey-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  margin-top: 50px;
+  gap: 50px;
+}
+
+.survey-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  border-radius: 20px;
+}
