@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SignUpFormBox = () => {
+    const navigate = useNavigate()
+
     function signUp(){
         var name = document.getElementById("name")
         var email = document.getElementById("email")
@@ -20,7 +22,7 @@ const SignUpFormBox = () => {
         })
 
         .then(() => {
-            alert("User Created Successfully")
+            navigate('/surveypage')
         })
     }
 
