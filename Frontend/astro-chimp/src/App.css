@@ -116,22 +116,12 @@
 
 .survey-box{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 200px;
   border: 3px solid black;
   border-radius: 15px;
-}
-
-.checkmark{
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background-color: rgb(255, 61, 61);
   text-align: center;
-  border-radius: 5px;
-  margin-left:152px;
-  margin-top: 10px;
-  box-shadow: 0 0 5px rgb(255, 108, 108);
 }
