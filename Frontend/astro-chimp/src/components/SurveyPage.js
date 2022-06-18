@@ -15,7 +15,8 @@ const SurveyPage = () => {
                 <SurveyElement/>
                 <SurveyElement/>
                 <SurveyElement/>
-
+                <SurveyElement/>
+                <SurveyElement/>
             </div>
         </div>
     )
