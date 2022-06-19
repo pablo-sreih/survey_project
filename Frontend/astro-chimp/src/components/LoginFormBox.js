@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginFormBox = () => {
 
     const navigate = useNavigate()
+    const email = useRef(null)
+    const password = useRef(null)
 
     function login(){
-        var email = document.getElementById('email')
-        var password = document.getElementById('password')
-
         let data = new FormData();
-        data.append('email', email.value)
-        data.append('password', password.value)
+        data.append('email', email.current.value)
+        data.append('password', password.current.value)
 
         axios({
             method: "POST",
@@ -35,8 +34,8 @@ const LoginFormBox = () => {
 
     return(
         <form className="login-form-container">
-            <input id="email" placeholder="Email"></input>
-            <input id="password" placeholder="Password"></input>
+            <input ref={email} id="email" placeholder="Email"></input>
+            <input ref={password} id="password" placeholder="Password"></input>
             <a>Forgot Password?</a>
             <button type="button" onClick={login}>Login</button>
             <Link to={"/signup"}>Create Account</Link>

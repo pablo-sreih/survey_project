@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SignUpFormBox = () => {
     const navigate = useNavigate()
+    var name = useRef(null)
+    var email = useRef(null)
+    var password = useRef(null)
 
     function signUp(){
-        var name = document.getElementById("name")
-        var email = document.getElementById("email")
-        var password = document.getElementById("password")
 
         let data = new FormData()
-        data.append("name", name.value)
-        data.append("email", email.value)
-        data.append("password", password.value)
+        data.append("name", name.current.value)
+        data.append("email", email.current.value)
+        data.append("password", password.current.value)
 
         axios({
             method: "POST",
@@ -28,9 +28,9 @@ const SignUpFormBox = () => {
 
     return(
         <form className="login-form-container">
-            <input id="name" placeholder="Name"></input>
-            <input id="email" placeholder="Email"></input>
-            <input id="password" placeholder="Password"></input>
+            <input ref={name} id="name" placeholder="Name"></input>
+            <input ref={email} id="email" placeholder="Email"></input>
+            <input ref={password} id="password" placeholder="Password"></input>
             <button type="button" onClick={signUp}>Sign Up</button>
             <Link to={"/"}>Log in</Link>
         </form>
