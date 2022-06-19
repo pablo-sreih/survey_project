@@ -4,6 +4,7 @@ import SignUp from "./components/SignUp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SurveyPage from "./components/SurveyPage";
 import AddSurveyPage from "./components/AddSurveyPage";
+import SurveyPageById from "./components/SurveyPageById";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path = "/signup" element = {<SignUp />}></Route>
       <Route path = "/surveypage" element = {<SurveyPage />}></Route>
       <Route path = "/addsurvey" element = {<AddSurveyPage />}></Route>
+      <Route path = "/survey" element = {<SurveyPageById />}></Route>
     </Routes>
     </>
     </BrowserRouter>

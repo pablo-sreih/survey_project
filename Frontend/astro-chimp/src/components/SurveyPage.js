@@ -1,47 +1,50 @@
+import { useEffect, useState } from "react";
 import React from "react";
 import NavBar from "../components/NavBar"
 import axios from "axios";
 import SurveyElement from "./SurveyElement";
-
+import { Navigate, useNavigate } from "react-router-dom";
 
 const SurveyPage = () => {
-    function createSurvey(surveyName){
-        var div = document.createElement("div");
-        div.setAttribute("class", "survey-box");
-        div.innerText = surveyName;
-        var div2 = document.getElementsByClassName("survey-container");
-        div2[0].appendChild(div)
+
+    const [surveys, setSurveys] = useState([])
+    const navigate = useNavigate()
+
+    function clickeddd(id){
+        console.log(id)
+        localStorage.setItem("survey_id", id)
+        navigate('/survey')
     }
-    
-    return(
-        
+
+    function getSurveys(){
         axios({
             method: "GET",
             url: "http://127.0.0.1:8000/api/get-surveys",
         })
     
         .then(function (response) {
-            console.log(response.data)
-            var data = response.data["surveys"]
-            for (var i = 0; i < data.length; i++){
-                var surveyName = data[i]["name"]
-                createSurvey(surveyName)
-            }
-        }),
-        
+            setSurveys(response.data["surveys"])
+        })
+    }
 
+    useEffect(() => {
+        getSurveys()
+    },[])
+
+    return(
         <div>
             <NavBar/>
             <h1 className="page-title">Surveys</h1>
             <div className="survey-container">
-                <SurveyElement/>
-                <SurveyElement/>
-                <SurveyElement/>
-                <SurveyElement/>
-                <SurveyElement/>
-                <SurveyElement/>
-                <SurveyElement/>
-                <SurveyElement/>
+                {
+                    surveys.map((value, index) => {
+                        return(
+                            <SurveyElement key = {index} pname = {value["name"]} clicked = {() => {
+                                clickeddd(value["id"])
+                            }}/>
+                        )
+                    })
+                }
             </div>
         </div>
     )
