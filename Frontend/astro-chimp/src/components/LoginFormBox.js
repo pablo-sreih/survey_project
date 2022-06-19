@@ -34,8 +34,8 @@ const LoginFormBox = () => {
 
     return(
         <form className="login-form-container">
-            <input ref={email} id="email" placeholder="Email"></input>
-            <input ref={password} id="password" placeholder="Password"></input>
+            <input type="text" ref={email} id="email" placeholder="Email"></input>
+            <input type="password" ref={password} id="password" placeholder="Password"></input>
             <a>Forgot Password?</a>
             <button type="button" onClick={login}>Login</button>
             <Link to={"/signup"}>Create Account</Link>
