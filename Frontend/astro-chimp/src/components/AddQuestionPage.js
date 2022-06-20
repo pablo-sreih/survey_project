@@ -1,25 +1,15 @@
 import React from 'react'
 import NavBar from './NavBar';
-import SelectOptions from './SelectOptions';
-import { render } from "@testing-library/react";
+import { useNavigate } from 'react-router-dom';
 
 function AddQuestionPage() {
-
-    function addQuestion(){
-        render(
-            <div className="add-question-container">
-                <label>Add Question</label>
-                <input></input>
-                <SelectOptions/>
-            </div>
-        )
-    }
+    const navigate = useNavigate()
 
   return (
     <div>
         <NavBar/>
         <div className='add-survey-page'>
-        <button className='add-btn' onClick={addQuestion}>Add question</button>
+        <button className='add-btn' onClick={() => {navigate("/questionadd")}}>Add question</button>
         </div>
         </div>
   )

@@ -6,6 +6,7 @@ import SurveyPage from "./components/SurveyPage";
 import AddSurveyPage from "./components/AddSurveyPage";
 import SurveyPageById from "./components/SurveyPageById";
 import AddQuestionPage from "./components/AddQuestionPage";
+import QuestionAdd from "./components/QuestionAdd";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path = "/addsurvey" element = {<AddSurveyPage />}></Route>
       <Route path = "/survey" element = {<SurveyPageById />}></Route>
       <Route path = "/addquestion" element = {<AddQuestionPage />}></Route>
+      <Route path = "/questionadd" element = {<QuestionAdd />}></Route>
     </Routes>
     </>
     </BrowserRouter>
