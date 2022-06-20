@@ -151,3 +151,8 @@
 .add-btn:hover{
   background-color:#07006b;
 }
+
+.add-question-container{
+  display: flex;
+  justify-content: center;
+}
