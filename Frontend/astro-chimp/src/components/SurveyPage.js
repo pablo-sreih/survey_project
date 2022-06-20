@@ -3,14 +3,14 @@ import React from "react";
 import NavBar from "../components/NavBar"
 import axios from "axios";
 import SurveyElement from "./SurveyElement";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SurveyPage = () => {
 
     const [surveys, setSurveys] = useState([])
     const navigate = useNavigate()
 
-    function clickeddd(id){
+    function clicked(id){
         console.log(id)
         localStorage.setItem("survey_id", id)
         navigate('/survey')
@@ -40,7 +40,7 @@ const SurveyPage = () => {
                     surveys.map((value, index) => {
                         return(
                             <SurveyElement key = {index} pname = {value["name"]} clicked = {() => {
-                                clickeddd(value["id"])
+                                clicked(value["id"])
                             }}/>
                         )
                     })
