@@ -32,14 +32,27 @@ function SurveyPageById() {
       )
     }
 
-    async function getPossibleAnswers(){
+    async function submitAnswers(id, answer){
+
       let data = new FormData()
-      render (<h1>Hello</h1>)
+      data.append("question_id", id)
+      data.append("answer", answer)
+
+      await axios({
+        method: "POST",
+        url: "http://localhost:8000/api/user/add-answer",
+        data:data
+      })
+
+      .then(function (response){
+        console.log(response)
+      })
     }
+      
+      
     
     useEffect(() => {
       getQuestions()
-      console.log(questions)
     },[])
 
   return (
@@ -49,7 +62,7 @@ function SurveyPageById() {
         {questions.map((value, index) => {
           return(
             <div>
-            <li className="list-question" key={index}>{value["name"]}</li>
+            <li className="list-question" id={value["id"]} key={index}>{value["name"]}</li>
             <PossibleAnswer type={value["type"]} question_id={value["id"]}/>
             </div>)
         })}
@@ -58,10 +71,12 @@ function SurveyPageById() {
         const input = document.getElementsByTagName("input")
         for (var i = 0; i < input.length; i++){
           if (input[i].type == "text"){
-            console.log("text=> ", input[i].value)
+            console.log(input[i].id)
+            submitAnswers(input[i].id, input[i].value)
           } else if (input[i].checked == true) {
-          console.log(input[i].value)
-        }
+            console.log(input[i].name)
+            submitAnswers(input[i].name, input[i].value)
+        } 
       }}}>Submit</button>
     </div>
   )
