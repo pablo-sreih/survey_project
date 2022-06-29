@@ -19,6 +19,7 @@ const AddSurveyPage = () => {
         })
 
         .then(function(response){
+            console.log(response.data)
             localStorage.setItem("survey_id", response.data["survey"]["id"])
             navigate("/addquestion")
         })

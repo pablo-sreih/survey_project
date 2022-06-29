@@ -54,7 +54,15 @@ function SurveyPageById() {
             </div>)
         })}
       </div>
-      <button>Submit</button>
+      <button onClick={() => {
+        const input = document.getElementsByTagName("input")
+        for (var i = 0; i < input.length; i++){
+          if (input[i].type == "text"){
+            console.log("text=> ", input[i].value)
+          } else if (input[i].checked == true) {
+          console.log(input[i].value)
+        }
+      }}}>Submit</button>
     </div>
   )
 }

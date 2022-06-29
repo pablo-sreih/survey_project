@@ -8,7 +8,7 @@ const NavBar = () => {
             <img src={image} alt=""></img>
             <div className="links">
                 <Link to = {"/surveypage"}>Surveys</Link>
-                <Link to = {"/"} onClick={localStorage.clear()}>Logout</Link>
+                <Link to = {"/"}>Logout</Link>
             </div>
         </div>
     )
