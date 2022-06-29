@@ -158,3 +158,13 @@
   justify-content: center;
   margin-top: 50px;
 }
+
+.radio{
+  display: block;
+  margin-left: 50px;
+}
+
+.list-question{
+  margin-left: 30px;
+  list-style: none;
+}
