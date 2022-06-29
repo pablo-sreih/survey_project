@@ -7,11 +7,11 @@ function AddQuestionPage() {
 
   return (
     <div>
-        <NavBar/>
-        <div className='add-survey-page'>
-        <button className='add-btn' onClick={() => {navigate("/questionadd")}}>Add question</button>
-        </div>
-        </div>
+      <NavBar/>
+      <div className='add-survey-page'>
+      <button className='add-btn' onClick={() => {navigate("/questionadd")}}>Add question</button>
+      </div>
+      </div>
   )
 }
 

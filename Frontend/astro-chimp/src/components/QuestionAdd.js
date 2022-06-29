@@ -80,7 +80,7 @@ function QuestionAdd() {
         <NavBar/>
         <div className="add-question-container">
                 <label>Add Question</label>
-                <input ref={question_name}></input>
+                <input className='input' ref={question_name}></input>
                 <select ref={select}>
                   <option value="text">Text</option>
                   <option value="radio">Radio</option>

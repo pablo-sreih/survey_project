@@ -27,10 +27,10 @@ const AddSurveyPage = () => {
     return(
         <div>
             <NavBar/>
-            <div>
-                <input ref={survey_name} placeholder="Survey Name"></input>
+            <center>
+                <input className="input" ref={survey_name} placeholder="Survey Name"></input>
                 <button onClick={addSurvey} className="add-btn">Add Survey</button>
-            </div>
+            </center>
         </div>
     )
 }

@@ -147,6 +147,7 @@
   color: white;
   border-radius: 10px;
   border: none;
+  margin-left:20px;
 }
 
 .add-btn:hover{
@@ -171,4 +172,6 @@
 
 .input{
   margin-left: 80px;
+  padding: 10px;
+  width: 300px;
 }

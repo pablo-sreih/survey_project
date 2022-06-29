@@ -35,7 +35,7 @@ function PossibleAnswer(props) {
             (type == "radio") ? <label className='radio'>
             <input type="radio" key={index} name={props.question_id}/> {value["possible_answer"]}</label> : 
             (type == "checkbox") ? <label className='radio'>
-            <input type="checkbox" key={index}/> {value["possible_answer"]}</label> : "Unknown Error Occured"
+            <input type="checkbox" key={index}/> {value["possible_answer"]}</label> : ""
             //(type == "dropdown") ? <select className='radio'>
             //<option key={index} name={props.question_id}>{value["possible_answer"]}</option></select> : 
         )
