@@ -8,6 +8,8 @@ function QuestionAdd() {
 
     let question_name = useRef(null)
     let select = useRef(null)
+    let option = useRef(null)
+
     function addQuestion(){
         let data = new FormData()
         data.append("survey_id", localStorage.getItem("survey_id"))
@@ -21,24 +23,58 @@ function QuestionAdd() {
         })
 
         .then(function(response){
+            localStorage.setItem("question_id", response.data["question"]["id"])
+            console.log(response.data["question"]["id"])
+        })
+    }
+
+    function submitOption(){
+        let data = new FormData()
+        data.append("question_id", localStorage.getItem("question_id"))
+        data.append("possible_answer", option.current.value)
+
+        axios({
+            method: "POST",
+            url: "http://127.0.0.1:8000/api/admin/add-pos-answer",
+            data:data
+        })
+
+        .then(function(response){
             console.log(response)
         })
     }
 
     function onchange(){
-        if (select.current.value === "text"){
-            render (<div>{question_name.current.value}
-            <label>{select.current.value}</label></div>)
-        } else {
+        if (select.current.value === "radio"){
             render (<div>
                 <div>{question_name.current.value}</div>
                 <label>{select.current.value}</label>
-                <input></input>
-                <button>Submit</button>
+                <input ref={option}></input>
+                <button onClick={() => submitOption()}>Submit</button>
                 </div>)
-            }
-        }
 
+        } else if (select.current.value === "checkbox"){
+            render (<div>
+                <div>{question_name.current.value}</div>
+                <label>{select.current.value}</label>
+                <input ref={option}></input>
+                <button onClick={() => submitOption()}>Submit</button>
+                </div>)
+        } else if (select.current.value === "dropdown"){
+            render (<div>
+                <div>{question_name.current.value}</div>
+                <label>{select.current.value}</label>
+                <input ref={option}></input>
+                <button onClick={() => submitOption()}>Submit</button>
+                </div>)
+        } else if (select.current.value === "text"){
+            render (<div>
+                <div>{question_name.current.value}</div>
+                <label>{select.current.value}</label>
+                </div>)
+        }
+    }
+    
   return (
     <div>
         <NavBar/>
