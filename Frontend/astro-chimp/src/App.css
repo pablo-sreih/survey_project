@@ -161,10 +161,14 @@
 
 .radio{
   display: block;
-  margin-left: 50px;
+  margin-left: 80px;
 }
 
 .list-question{
-  margin-left: 30px;
+  margin-left: 50px;
   list-style: none;
+}
+
+.input{
+  margin-left: 80px;
 }

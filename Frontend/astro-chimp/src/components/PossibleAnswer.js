@@ -28,18 +28,19 @@ function PossibleAnswer(props) {
 
 
   return (
-    <div>{possibleAnswers.map((value, index) => {
-        return( 
+    <div>
+        {(type == "text") ? <input className='input' type="text"/> : ""} 
+        {possibleAnswers.map((value, index) => {
+        return(
             (type == "radio") ? <label className='radio'>
             <input type="radio" key={index} name={props.question_id}/> {value["possible_answer"]}</label> : 
             (type == "checkbox") ? <label className='radio'>
-            <input type="checkbox" key={index} name={props.question_id}/> {value["possible_answer"]}</label> : 
+            <input type="checkbox" key={index}/> {value["possible_answer"]}</label> : "Unknown Error Occured"
             //(type == "dropdown") ? <select className='radio'>
             //<option key={index} name={props.question_id}>{value["possible_answer"]}</option></select> : 
-            (type == "text") ? <label className='radio'>
-            <input key={index} name={props.question_id}/> {value["possible_answer"]}</label> : "Unknown Error Occured"
         )
-    })}</div>
+    })}
+    </div>
   )
 }
 

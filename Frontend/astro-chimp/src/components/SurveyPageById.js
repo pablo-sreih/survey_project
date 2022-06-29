@@ -45,15 +45,16 @@ function SurveyPageById() {
   return (
     <div>
       <NavBar/>
-      <ul>
+      <div>
         {questions.map((value, index) => {
           return(
-            <ul>
+            <div>
             <li className="list-question" key={index}>{value["name"]}</li>
             <PossibleAnswer type={value["type"]} question_id={value["id"]}/>
-            </ul>)
+            </div>)
         })}
-      </ul>
+      </div>
+      <button>Submit</button>
     </div>
   )
 }
